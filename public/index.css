@@ -113,6 +113,11 @@ body {
     font-family: var(--main-font);
 }
 
+.btn:hover {
+    cursor: pointer;
+    background-color: hsl(158, 36%, 20%);
+}
+
 @media (max-width: 600px) {
 
     body {
