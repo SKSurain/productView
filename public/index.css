@@ -1,84 +1,181 @@
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: hsl(30, 38%, 92%);
-
+/* Variables for colors and font family */
+:root {
+    --main-font: 'Montserrat', sans-serif;
+    --main-color: hsl(158, 36%, 37%);
+    --background-color: hsl(30, 38%, 92%);
 }
 
-.container {
-    display: flex;
-    height: 50vh;
+@media (max-width: 2000px) {
+    body {
+        height: 100vh;
+        background-color: var(--background-color);
+        font-family: var(--main-font);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image-section {
+        flex: 0 0 50%;
+        /* Makes it always occupy 50% width of the container */
+    }
+
+    .image-section img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 1px solid #dddddd00;
+        border-radius: 16px 0 0 16px;
+        /* Ensures the image covers the entire space */
+    }
+
+    .content-section {
+        flex: 0 0 50%;
+        /* Makes it always occupy 50% width of the container */
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        padding: 1.2rem;
+        border: 1px solid #dddddd00;
+        border-radius: 0 16px 16px 0;
+        /* Shorter form for equal padding on all sides */
+    }
+
+    /* Styles for different parts of the content section */
+    .content-section>* {
+        display: flex;
+    }
+
+    .item-category {
+        font-weight: 500;
+        color: grey;
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+
+    .item-price,
+    .item-title {
+        font-family: 'Fraunces', serif;
+        font-size: 2.7rem;
+    }
+
+    .item-title {
+        line-height: 0.85;
+        padding: 0;
+    }
+
+    .item-description {
+        font-weight: 500;
+        color: grey;
+    }
+
+    .item-price {
+        color: var(--main-color);
+        margin: 1em 0;
+        /* Use em units instead of % for more consistent spacing */
+    }
+
+    .item-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        /* Allows button to take remaining space */
+    }
+
+    /* Button styling */
+    .btn {
+        background-color: var(--main-color);
+        border: 0;
+        width: 100%;
+        padding: 1em;
+        /* Use em units instead of px for scalable padding */
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 700;
+        font-family: var(--main-font);
+    }
+
+    html {
+        font-size: 16px;
+        /* Base font size for medium screens */
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 65vw;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
 }
 
-.image-section {
-    flex: 1;
-    background-color: red;
+
+@media (max-width: 1159px) {
+    html {
+        font-size: 15px;
+    }
+
+    .container {
+        width: 65vw;
+    }
+
+    .content-section {
+        padding: 1.2rem;
+    }
 }
 
-.image-section img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+@media (max-width: 1000px) {
+    html {
+        font-size: 13px;
+    }
+
+    .container {
+        width: 70vw;
+    }
+
+    .content-section {
+        padding: 1.2rem;
+    }
 }
 
+@media (max-width: 800px) {
+    html {
+        font-size: 12px;
+    }
 
+    .container {
+        width: 80vw;
+    }
 
-.content-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: hsl(0, 0%, 100%);
-    font-family: 'Montserrat', sans-serif;
+    .content-section {
+        padding: 1.1rem;
+    }
 }
 
-.items {
-    margin: 4% 6% 3% 6%;
-    display: flex;
-}
-
-.category {
-    font-weight: 500;
-    color: gray;
-}
-
-.title {
-    font-family: 'Fraunces', serif;
-    font-size: 40px;
-    line-height: 0.85;
-    padding: 0;
-}
-
-.description {
-    font-weight: 500;
-    color: grey;
-}
+@media (max-width: 600px) {
+    html {
+        font-size: 12px;
+    }
 
 
-.price {
-    font-size: 40px;
-    font-family: 'Fraunces', serif;
-    color: hsl(158, 36%, 37%);
-    margin: 8% 6% 5% 6%;
-}
+    .container {
+        flex-direction: column;
+        width: 100vw;
+    }
 
+    .image-section {
+        height: 40vh;
+        border: 1px solid #dddddd00;
+        border-radius: 0;
 
-.button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-}
+    }
 
-.btn {
-    background-color: hsl(158, 36%, 37%);
-    border: 0;
-    width: 100%;
-    border-radius: 6px;
-    padding: 16px;
-    color: white;
-    font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+    .content-section {
+        height: 60vh;
+        padding: 2em;
+    }
 }
