@@ -3,6 +3,10 @@
     --main-font: 'Montserrat', sans-serif;
     --main-color: hsl(158, 36%, 37%);
     --background-color: hsl(30, 38%, 92%);
+    --border: 1px solid #dddddd00;
+    --secondary-color: grey;
+    --tertiary-color: white;
+    --main-font-weight: 500;
 }
 
 html {
@@ -38,7 +42,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: 1px solid #dddddd00;
+    border: var(--border);
     border-radius: 16px 0 0 16px;
     /* Ensures the image covers the entire space */
 }
@@ -49,21 +53,16 @@ body {
     /* Makes it always occupy 50% width of the container */
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--tertiary-color);
     padding: 1rem;
-    border: 1px solid #dddddd00;
+    border: var(--border);
     border-radius: 0 16px 16px 0;
     /* Shorter form for equal padding on all sides */
 }
 
-/* Styles for different parts of the content section */
-.content-section>* {
-    display: flex;
-}
-
 .item-category {
-    font-weight: 500;
-    color: grey;
+    font-weight: var(--main-font-weight);
+    color: var(--secondary-color);
     font-size: 1.2rem;
     letter-spacing: 2px;
 }
@@ -80,9 +79,9 @@ body {
 }
 
 .item-description {
-    font-weight: 500;
+    font-weight: var(--main-font-weight);
     line-height: 1.75rem;
-    color: grey;
+    color: var(--secondary-color);
 }
 
 .item-price {
@@ -94,9 +93,9 @@ body {
 .item-discount {
     font-size: 1.2rem;
     padding-left: 1.5rem;
-    font-weight: 500;
+    font-weight: var(--main-font-weight);
     align-self: center;
-    color: grey;
+    color: var(--secondary-color);
     text-decoration: line-through;
     font-family: var(--main-font);
 }
@@ -118,7 +117,7 @@ body {
     padding: 1em;
     border-radius: 8px;
     /* Use em units instead of px for scalable padding */
-    color: white;
+    color: var(--tertiary-color);
     font-size: 1.2rem;
     font-weight: 700;
     font-family: var(--main-font);
@@ -127,6 +126,16 @@ body {
 .btn:hover {
     cursor: pointer;
     background-color: hsl(158, 36%, 20%);
+}
+
+@media (min-width: 1800px) {
+    html {
+        font-size: 1.3rem
+    }
+
+    .container {
+        width: 55vw;
+    }
 }
 
 @media (max-width: 600px) {
